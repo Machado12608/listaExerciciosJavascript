@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Soma com Condição</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background-color: #eef2f3;
+    }
+    .container {
+      max-width: 400px;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    input, button {
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+      font-size: 16px;
+    }
+    #resultado {
+      margin-top: 15px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Calculadora Condicional</h2>
+    <label for="num1">Número 1:</label>
+    <input type="number" id="num1" placeholder="Digite o primeiro número">
+
+    <label for="num2">Número 2:</label>
+    <input type="number" id="num2" placeholder="Digite o segundo número">
+
+    <button onclick="calcular()">Calcular</button>
+
+    <div id="resultado"></div>
+  </div>
+
+  <script>
+    function calcular() {
+      const n1 = parseFloat(document.getElementById('num1').value);
+      const n2 = parseFloat(document.getElementById('num2').value);
+
+      if (isNaN(n1) || isNaN(n2)) {
+        document.getElementById('resultado').textContent = "Por favor, preencha os dois números corretamente.";
+        return;
+      }
+
+      const soma = n1 + n2;
+      let resultadoFinal;
+
+      if (soma > 20) {
+        resultadoFinal = soma + 8;
+        document.getElementById('resultado').textContent = `Soma maior que 20. Resultado final: ${resultadoFinal}`;
+      } else {
+        resultadoFinal = soma - 5;
+        document.getElementById('resultado').textContent = `Soma menor ou igual a 20. Resultado final: ${resultadoFinal}`;
+      }
+    }
+  </script>
+</body>
+</html>

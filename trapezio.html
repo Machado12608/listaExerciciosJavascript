@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Área do Trapézio</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background-color: #f5f5f5;
+    }
+    .container {
+      max-width: 400px;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    input, button {
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+      font-size: 16px;
+    }
+    #resultado {
+      margin-top: 15px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Calculadora de Área do Trapézio</h2>
+    <label for="baseMaior">Base Maior (B):</label>
+    <input type="number" id="baseMaior" placeholder="Digite a base maior">
+
+    <label for="baseMenor">Base Menor (b):</label>
+    <input type="number" id="baseMenor" placeholder="Digite a base menor">
+
+    <label for="altura">Altura (h):</label>
+    <input type="number" id="altura" placeholder="Digite a altura">
+
+    <button onclick="calcularArea()">Calcular Área</button>
+
+    <div id="resultado"></div>
+  </div>
+
+  <script>
+    function calcularArea() {
+      const B = parseFloat(document.getElementById('baseMaior').value);
+      const b = parseFloat(document.getElementById('baseMenor').value);
+      const h = parseFloat(document.getElementById('altura').value);
+
+      if (isNaN(B) || isNaN(b) || isNaN(h)) {
+        document.getElementById('resultado').textContent = "Por favor, preencha todos os campos com valores válidos.";
+        return;
+      }
+
+      const area = ((B + b) * h) / 2;
+      document.getElementById('resultado').textContent = `A área do trapézio é: ${area.toFixed(2)} m/cm²`;
+    }
+  </script>
+</body>
+</html>
